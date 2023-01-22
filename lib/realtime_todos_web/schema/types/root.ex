@@ -30,4 +30,24 @@ defmodule RealtimeTodosWeb.Schema.Types.Root do
       resolve &Resolvers.User.create/2
     end
   end
+
+  object :root_subscription do
+    field :my_todos, :todo do
+      arg :uid, non_null(:string)
+
+      config fn args, _ ->
+        {:ok, topic: args.user_id}
+      end
+
+      trigger :create_todo, topic: &Function.identity/1
+
+      resolve fn todo, _, _ ->
+        # this function is often not actually necessary, as the default resolver
+        # for subscription functions will just do what we're doing here.
+        # The point is, subscription resolvers receive whatever value triggers
+        # the subscription, in our case a todo.
+        {:ok, todo}
+      end
+    end
+  end
 end

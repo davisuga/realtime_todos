@@ -15,9 +15,10 @@ defmodule RealtimeTodos.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: RealtimeTodos.PubSub},
       # Start the Endpoint (http/https)
-      RealtimeTodosWeb.Endpoint
+      RealtimeTodosWeb.Endpoint,
       # Start a worker by calling: RealtimeTodos.Worker.start_link(arg)
       # {RealtimeTodos.Worker, arg}
+      {Absinthe.Subscription, RealtimeTodosWeb.Endpoint}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

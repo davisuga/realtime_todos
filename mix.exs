@@ -45,7 +45,8 @@ defmodule RealtimeTodos.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:absinthe, "~> 1.7.0"},
-      {:absinthe_phoenix, "~> 2.0.0"}
+      {:absinthe_phoenix, "~> 2.0.0"},
+      {:httpoison, "~> 2.0"}
     ]
   end
 

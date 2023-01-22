@@ -11,7 +11,6 @@ defmodule RealtimeTodos.Todo do
     timestamps()
   end
 
-  @doc false
   def changeset(attrs) do
     %__MODULE__{}
     |> cast(attrs, [:name, :description, :done, :user_id])
