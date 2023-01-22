@@ -5,8 +5,10 @@ defmodule RealtimeTodosWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", RealtimeTodosWeb do
+  scope "/api" do
     pipe_through :api
+    forward "/graphql", Absinthe.Plug, schema: RealtimeTodos.Schema
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: RealtimeTodos.Schema
   end
 
   # Enables LiveDashboard only for development
