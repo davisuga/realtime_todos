@@ -4,7 +4,7 @@ defmodule RealtimeTodos.User do
 
   schema "users" do
     field :name, :string
-
+    has_many :todos, RealtimeTodos.Todo
     timestamps()
   end
 

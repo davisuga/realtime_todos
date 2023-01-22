@@ -14,7 +14,7 @@ defmodule RealtimeTodos.Todo do
   @doc false
   def changeset(attrs) do
     %__MODULE__{}
-    |> cast(attrs, [:name, :description, :done])
-    |> validate_required([:name, :description, :done])
+    |> cast(attrs, [:name, :description, :done, :user_id])
+    |> validate_required([:name, :description, :done, :user_id])
   end
 end
